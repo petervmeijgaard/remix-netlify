@@ -4,5 +4,14 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { netlifyPlugin } from "@netlify/remix-edge-adapter/plugin";
 
 export default defineConfig({
-  plugins: [remix(), netlifyPlugin(), tsconfigPaths()],
+	plugins: [
+		remix({
+			ignoredRouteFiles: ["**/.*"],
+			future: {
+				unstable_singleFetch: true,
+			},
+		}),
+		netlifyPlugin(),
+		tsconfigPaths(),
+	],
 });
