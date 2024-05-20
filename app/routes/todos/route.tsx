@@ -45,7 +45,7 @@ export default function Index() {
 	const { todosPromise } = useLoaderData<typeof loader>();
 
 	return (
-		<div className="container mx-auto py-6">
+		<div className="container py-6">
 			<div className="grid items-start gap-4 md:grid-cols-3">
 				<CreateTodoCard className="col-span-1" />
 				<TodoOverviewCard
