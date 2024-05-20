@@ -1,7 +1,6 @@
 import { ComponentProps, ComponentRef, FormEvent, useRef } from "react";
 import { Input } from "~/components/ui/input";
 import { Form, useSubmit } from "@remix-run/react";
-import invariant from "tiny-invariant";
 import {
 	Card,
 	CardContent,
@@ -11,6 +10,7 @@ import {
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { ADD_TODO_FORM, INTENTS } from "./constants";
+import { invariant } from "~/lib/invariant";
 
 export function CreateTodoCard(props: ComponentProps<typeof Card>) {
 	const inputRef = useRef<ComponentRef<typeof Input>>(null);
@@ -26,7 +26,7 @@ export function CreateTodoCard(props: ComponentProps<typeof Card>) {
 			navigate: false,
 		});
 
-		invariant(inputRef.current);
+		invariant(inputRef.current, "Input ref is missing");
 
 		inputRef.current.value = "";
 	};

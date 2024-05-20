@@ -10,6 +10,7 @@ import { INTENTS } from "./constants";
 import { addTodoAction, removeTodoAction, toggleTodoAction } from "./actions";
 import { getAllTodos } from "./queries";
 import { TodoOverviewCard } from "./todo-overview-card";
+import { invariant } from "~/lib/invariant";
 
 export const meta: MetaFunction = () => [
 	{ title: "New Remix App" },
@@ -26,7 +27,7 @@ export const action = defineAction(async (args) => {
 	const formData = await args.request.clone().formData();
 	const intent = formData.get("_intent");
 
-	if (!intent) throw badRequest("Missing intent");
+	invariant(intent, "Missing intent");
 
 	switch (intent) {
 		case INTENTS.addTodo:
