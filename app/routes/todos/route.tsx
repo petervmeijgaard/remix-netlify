@@ -27,7 +27,7 @@ export const action = defineAction(async (args) => {
 	const formData = await args.request.clone().formData();
 	const intent = formData.get("_intent");
 
-	invariant(intent, "Missing intent");
+	invariant(intent, badRequest("Missing intent"));
 
 	switch (intent) {
 		case INTENTS.addTodo:
