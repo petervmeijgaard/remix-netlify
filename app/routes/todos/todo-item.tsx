@@ -13,13 +13,17 @@ function TodoItem({ title, id, isCompleted }: SerializeFrom<Todo>) {
 			<Form method="post" className="flex">
 				<input type="hidden" name="_intent" value={INTENTS.toggleTodo} />
 				<input type="hidden" name="id" value={id} />
-				<Checkbox checked={isCompleted} type="submit" />
+				<Checkbox
+					checked={isCompleted}
+					type="submit"
+					title={isCompleted ? "Reopen todo" : "Finish todo"}
+				/>
 			</Form>
 			<p className="text-md flex flex-1 font-medium leading-none">{title}</p>
 			<Form method="post">
 				<input type="hidden" name="_intent" value={INTENTS.removeTodo} />
 				<input type="hidden" name="id" value={id} />
-				<Button type="submit">
+				<Button type="submit" title="Delete todo">
 					<Trash size={16} />
 				</Button>
 			</Form>
