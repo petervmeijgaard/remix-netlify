@@ -12,8 +12,8 @@ import { getAllTodos } from "./queries";
 import { TodoOverviewCard } from "./todo-overview-card";
 
 export const meta: MetaFunction = () => [
-	{ title: "New Remix App" },
-	{ name: "description", content: "Welcome to Remix!" },
+	{ title: "Remix Todo App" },
+	{ name: "description", content: "Yet Another Remix Todo App" },
 ];
 
 export const loader = defineLoader(async () => {
