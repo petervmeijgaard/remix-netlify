@@ -28,7 +28,7 @@ export const toggleTodoAction = defineAction(async ({ request }) => {
 	const toggleResult = await toggleTodo(result.data.id);
 
 	if (!toggleResult.success) {
-		throw badRequest("Toggling todo failed");
+		throw badRequest(toggleResult.error);
 	}
 
 	return json({ ok: true });
@@ -45,7 +45,7 @@ export const removeTodoAction = defineAction(async ({ request }) => {
 	const removeResult = await removeTodo(result.data.id);
 
 	if (!removeResult.success) {
-		throw badRequest("Removing todo failed");
+		throw badRequest(removeResult.error);
 	}
 
 	return json({ ok: true });
