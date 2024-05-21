@@ -43,10 +43,10 @@ function Result({ data }: ResultProps) {
 }
 
 type TodoOverviewCardProps = ComponentProps<typeof Card> & {
-	resolve: Promise<Todos>;
+	promise: Promise<Todos>;
 };
 
-export function TodoOverviewCard({ resolve, ...props }: TodoOverviewCardProps) {
+export function TodoOverviewCard({ promise, ...props }: TodoOverviewCardProps) {
 	return (
 		<Card {...props}>
 			<CardHeader>
@@ -54,7 +54,7 @@ export function TodoOverviewCard({ resolve, ...props }: TodoOverviewCardProps) {
 			</CardHeader>
 			<CardContent className="space-y-2">
 				<Suspense fallback={<Skeleton {...props} />}>
-					<Await resolve={resolve} errorElement={<Error {...props} />}>
+					<Await resolve={promise} errorElement={<Error {...props} />}>
 						{(items) => <Result data={items} {...props} />}
 					</Await>
 				</Suspense>

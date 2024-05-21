@@ -50,7 +50,7 @@ export default function Index() {
 			<div className="grid items-start gap-4 md:grid-cols-3">
 				<CreateTodoCard className="col-span-1" />
 				<TodoOverviewCard
-					resolve={todosPromise}
+					promise={todosPromise}
 					className="col-span-1 md:order-first md:col-span-2"
 				/>
 			</div>
