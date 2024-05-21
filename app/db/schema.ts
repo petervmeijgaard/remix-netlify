@@ -1,5 +1,5 @@
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { InferInsertModel, InferSelectModel, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 
 export const todos = sqliteTable("todo", {
 	id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
@@ -15,6 +15,6 @@ export const todos = sqliteTable("todo", {
 		.default(sql`(unixepoch())`),
 });
 
-export type Todo = InferSelectModel<typeof todos>;
+export type SelectTodo = typeof todos.$inferSelect;
 
-export type NewTodo = InferInsertModel<typeof todos>;
+export type InsertTodo = typeof todos.$inferInsert;

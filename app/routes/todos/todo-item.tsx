@@ -4,10 +4,10 @@ import { INTENTS } from "./constants";
 import { Button } from "~/components/ui/button";
 import { Trash } from "lucide-react";
 import { SerializeFrom } from "@netlify/remix-runtime";
-import { Todo } from "~/db/schema";
+import { SelectTodo } from "~/db/schema";
 import { Skeleton as BaseSkeleton } from "~/components/ui/skeleton";
 
-function TodoItem({ title, id, isCompleted }: SerializeFrom<Todo>) {
+function TodoItem({ title, id, isCompleted }: SerializeFrom<SelectTodo>) {
 	return (
 		<div className="flex items-center gap-x-2">
 			<Form method="post" className="flex">

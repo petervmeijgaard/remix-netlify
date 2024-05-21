@@ -2,11 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { TodoItem } from "./todo-item";
 import { ComponentProps, Fragment, Suspense } from "react";
 import { SerializeFrom } from "@netlify/remix-runtime";
-import { Todo } from "~/db/schema";
+import { SelectTodo } from "~/db/schema";
 import { Separator } from "~/components/ui/separator";
 import { Await } from "@remix-run/react";
 
-type Todos = SerializeFrom<Array<Todo>>;
+type Todos = SerializeFrom<Array<SelectTodo>>;
 
 type SkeletonProps = {
 	amount?: number;

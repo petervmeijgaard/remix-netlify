@@ -1,4 +1,4 @@
-import { NewTodo, todos } from "~/db/schema";
+import { InsertTodo, todos } from "~/db/schema";
 import { db } from "~/db";
 import { desc, eq } from "drizzle-orm";
 import { error, success } from "~/lib/result";
@@ -9,7 +9,7 @@ export async function getAllTodos() {
 	});
 }
 
-export async function addTodo(newTodo: NewTodo) {
+export async function addTodo(newTodo: InsertTodo) {
 	return db.insert(todos).values(newTodo);
 }
 
