@@ -1,14 +1,11 @@
 import { Checkbox } from "~/components/ui/checkbox";
-import { Form, useLoaderData } from "@remix-run/react";
+import { Form } from "@remix-run/react";
 import { INTENTS } from "./constants";
 import { Button } from "~/components/ui/button";
 import { Trash } from "lucide-react";
 import { SerializeFrom } from "@netlify/remix-runtime";
 import { SelectTodo } from "~/db/schema";
 import { Skeleton as BaseSkeleton } from "~/components/ui/skeleton";
-import { CreateTodoCard } from "~/routes/_index/create-todo-card";
-import { TodoOverviewCard } from "~/routes/_index/todo-overview-card";
-import { loader } from "~/routes/_index/route";
 
 function TodoItem({ title, id, isCompleted }: SerializeFrom<SelectTodo>) {
 	return (
